@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springboot.dev_spring_boot_demo.entity.Coffee;
 import com.springboot.dev_spring_boot_demo.service.CoffeeService;
@@ -24,16 +26,34 @@ public class login {
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String loginPage() {
         return "login";
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestParam("username") String username,
+                       @RequestParam("password") String password,
+                       RedirectAttributes redirectAttributes) {
+        // Here you should add your authentication logic
+        // For example, check against a user service
+        if (isValidUser(username, password)) {
+            return "redirect:/home";
+        } else {
+            redirectAttributes.addFlashAttribute("error", "Invalid username or password");
+            return "redirect:/login";
+        }
+    }
+
+    private boolean isValidUser(String username, String password) {
+        // Implement your user validation logic here
+        // This is just a placeholder - you should replace with actual authentication
+        return username != null && password != null && !username.isEmpty() && !password.isEmpty();
     }
 
     @GetMapping("/admin")
     public String admin() {
         return "admin";
     }
-
-
 
     @GetMapping("/shop")
     public String shop(Model model) {

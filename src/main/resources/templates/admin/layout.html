@@ -10,7 +10,7 @@ xmlns:layout="https://www.ultraq.net.nz">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/admin/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -20,6 +20,92 @@ xmlns:layout="https://www.ultraq.net.nz">
     <link th:href="@{/admin/css/sb-admin-2.min.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+        
+    <style>
+        :root {
+            --primary-color: #FF6B35;
+            --primary-dark: #ff9d72;
+            --primary-light: #ff9d72;
+            --primary-hover: #ff8c5a;
+        }
+        
+        .bg-gradient-primary {
+            background: linear-gradient(180deg, var(--primary-color) 10%, var(--primary-dark) 100%) !important;
+        }
+        
+        .sidebar .nav-item .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .sidebar .nav-item .nav-link:hover {
+            color: #fff;
+            background-color: var(--primary-hover);
+        }
+        
+        .sidebar .nav-item.active .nav-link {
+            color: #fff;
+            background-color: var(--primary-hover);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color) !important;
+            border-color: var(--primary-color) !important;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark) !important;
+            border-color: var(--primary-dark) !important;
+        }
+        
+        .sidebar-brand {
+            background-color: var(--primary-dark);
+        }
+        
+        .sidebar .sidebar-heading {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .sidebar-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .topbar .navbar-search .form-control {
+            border-color: var(--primary-color);
+        }
+        
+        .topbar .navbar-search .btn-primary {
+            background-color: var(--primary-color);
+        }
+        
+        .topbar .navbar-search .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .dropdown-item:active {
+            background-color: var(--primary-color);
+        }
+        
+        .bg-primary {
+            background-color: var(--primary-color) !important;
+        }
+        
+        .text-primary {
+            color: var(--primary-color) !important;
+        }
+        
+        .border-left-primary {
+            border-left-color: var(--primary-color) !important;
+        }
+        
+        .sidebar-brand-text {
+            color: #fff !important;
+            font-weight: 600;
+        }
+        
+        .sidebar-brand-icon {
+            color: #fff !important;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -30,16 +116,14 @@ xmlns:layout="https://www.ultraq.net.nz">
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/admin}">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
+          <!-- Sidebar - Brand -->
+          <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/admin}">
+            <div class="sidebar-brand-icon">
+                <i class="fas fa-coffee"></i>
             </div>
             <div class="sidebar-brand-text mx-3">
-                
-                     SB Admin <sup>2</sup>
-                
-               </div>
+                ChaChaCoffee
+            </div>
         </a>
 
         <!-- Divider -->
@@ -47,9 +131,10 @@ xmlns:layout="https://www.ultraq.net.nz">
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" th:href="@{/admin}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span>Dashboard</span>
+            </a>
         </li>
 
         <!-- Divider -->
@@ -57,85 +142,34 @@ xmlns:layout="https://www.ultraq.net.nz">
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Interface
+            Management
         </div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Components</span>
-            </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="buttons.html">Buttons</a>
-                    <a class="collapse-item" href="cards.html">Cards</a>
-                </div>
-            </div>
-        </li>
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Utilities</span>
+            <a class="nav-link" th:href="@{/admin/coffee/list-coffee}">
+                <i class="fas fa-fw fa-coffee"></i>
+                <span>Coffee Management</span>
             </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                    <a class="collapse-item" href="utilities-border.html">Borders</a>
-                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                    <a class="collapse-item" href="utilities-other.html">Other</a>
-                </div>
-            </div>
         </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Addons
-        </div>
-
+    
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Pages</span>
+            <a class="nav-link" th:href="@{/admin/customer/customer-coffee}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Customer Management</span>
             </a>
-            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Login Screens:</h6>
-                    <a class="collapse-item" th:href="@{/admin/coffee/list-coffee}">Coffee List</a>
-                    <a class="collapse-item" th:href="@{/admin/customer/customer-coffee}">Customer List</a>
-                    <a class="collapse-item" href="register.html">Register</a>
-                    <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                    <div class="collapse-divider"></div>
-                    <h6 class="collapse-header">Other Pages:</h6>
-                    <a class="collapse-item" href="404.html">404 Page</a>
-                    <a class="collapse-item" href="blank.html">Blank Page</a>
-                </div>
-            </div>
         </li>
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
             <a class="nav-link" th:href="@{admin/system}">
-                <i class="fas fa-fw fa-chart-area"></i>
+                <i class="fas fa-fw fa-cog"></i>
                 <span>System</span></a>
         </li>
 
-        <!-- Nav Item - Tables -->
-        <li class="nav-item">
-            <a class="nav-link" href="tables.html">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Tables</span></a>
-        </li>
-
-
+   
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
