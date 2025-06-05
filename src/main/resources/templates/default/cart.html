@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ hàng - ChaChaCoffee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FF6B35",
+              secondary: "#1B365D",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      .font-playfair { font-family: 'Playfair Display', serif; }
+      .cart-item-hover:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Include the header -->
+    <div th:replace="~{default/header :: body}"></div>
+
+    <section class="pt-20 pb-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <h1 class="font-playfair text-4xl text-center mb-4">Giỏ hàng của bạn</h1>
+                <p class="text-gray-600 text-center mb-12">Kiểm tra và điều chỉnh sản phẩm trong giỏ hàng của bạn</p>
+
+                <!-- Cart Items -->
+                <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                    <div th:if="${#lists.isEmpty(cartItems)}" class="text-center py-16">
+                        <div class="bg-gray-50 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
+                            <i class="ri-shopping-cart-line text-5xl text-gray-300"></i>
+                        </div>
+                        <p class="text-gray-500 text-xl mb-4">Giỏ hàng của bạn đang trống</p>
+                        <a href="/shop" class="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
+                            <i class="ri-arrow-left-line"></i>
+                            Tiếp tục mua sắm
+                        </a>
+                    </div>
+
+                    <div th:if="${not #lists.isEmpty(cartItems)}" class="space-y-6">
+                        <!-- Cart Item -->
+                        <div th:each="item : ${cartItems}" class="flex items-center gap-6 p-4 rounded-lg transition-all duration-300 cart-item-hover bg-white border border-gray-100">
+                            <img th:src="${item.coffee.image}" alt="Coffee" class="w-28 h-28 object-cover rounded-lg shadow-sm">
+                            <div class="flex-1">
+                                <h3 class="font-playfair text-xl mb-2" th:text="${item.coffee.name}">Coffee Name</h3>
+                                <p class="text-primary font-semibold" th:text="${#numbers.formatDecimal(item.coffee.price, 0, 'COMMA', 0, 'POINT') + ' đ'}">Price</p>
+                            </div>
+                            <div class="flex items-center gap-6">
+                                <div class="flex items-center border rounded-lg overflow-hidden">
+                                    <button class="px-4 py-2 hover:bg-gray-100 transition-colors border-r">
+                                        <i class="ri-subtract-line"></i>
+                                    </button>
+                                    <span class="px-4 py-2 min-w-[3rem] text-center" th:text="${item.quantity}">1</span>
+                                    <button class="px-4 py-2 hover:bg-gray-100 transition-colors border-l">
+                                        <i class="ri-add-line"></i>
+                                    </button>
+                                </div>
+                                <button class="text-red-500 hover:text-red-600 transition-colors p-2 hover:bg-red-50 rounded-full">
+                                    <i class="ri-delete-bin-line text-xl"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div th:if="${not #lists.isEmpty(cartItems)}" class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="font-playfair text-2xl mb-6">Tổng kết đơn hàng</h2>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-600">Tạm tính:</span>
+                            <span class="font-semibold" th:text="${#numbers.formatDecimal(subtotal, 0, 'COMMA', 0, 'POINT') + ' đ'}">0 đ</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-600">Phí vận chuyển:</span>
+                            <span class="font-semibold" th:text="${#numbers.formatDecimal(shipping, 0, 'COMMA', 0, 'POINT') + ' đ'}">0 đ</span>
+                        </div>
+                        <div class="border-t pt-4 mt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold">Tổng cộng:</span>
+                                <span class="text-2xl font-bold text-primary" th:text="${#numbers.formatDecimal(total, 0, 'COMMA', 0, 'POINT') + ' đ'}">0 đ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex gap-4">
+                        <a href="/shop" class="flex-1 bg-gray-100 text-gray-800 py-3 px-6 rounded-button text-center hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
+                            <i class="ri-arrow-left-line"></i>
+                            Tiếp tục mua sắm
+                        </a>
+                        <button class="flex-1 bg-primary text-white py-3 px-6 rounded-button hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+                            Thanh toán
+                            <i class="ri-arrow-right-line"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include the footer -->
+    <div th:replace="~{default/footer :: body}"></div>
+  </body>
+</html> 

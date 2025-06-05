@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChaChaCoffee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FF6B35",
+              secondary: "#1B365D",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      .font-playfair { font-family: 'Playfair Display', serif; }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Include the header -->
+    <div th:replace="~{default/header :: body}"></div>
+
+    <main class="pt-20">
+      <section style="background-image: url('/default/images/1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;" class="relative min-h-[80vh] flex items-center">
+      <div class="container mx-auto px-6 py-20">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="font-playfair text-8xl italic mb-6">Coffee</h1>
+            <p class="text-xl text-gray-600 mb-8">
+              Everything You Love About Coffee
+            </p>
+            <p class="text-xl text-black mb-8">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+              </p>
+            <a href="/shop"
+              class="inline-block bg-primary text-white px-8 py-3 rounded-button hover:bg-primary/90 transition-colors"
+            >
+              Order Now
+            </a>
+          </div>
+          <div class="relative">
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background-image: url('/default/images/2.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;" 
+    class="min-h-screen py-40 flex items-center">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center justify-end">
+        <div class="text-white text-left">
+          <h2 class="font-playfair text-8xl italic mb-8 text-black">Dark Coffees</h2>
+          <a href="/shop" class="inline-block bg-primary text-white px-10 py-4 rounded-lg hover:bg-primary/90 transition-colors text-lg">
+            Order Now
+          </a>
+        </div>
+        <div class="text-lg text-white">
+          <p class="mb-10 text-right ml-auto max-w-md leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ea 
+            commodo consequat. Duis aut dolor in reprehenderit in voluptate velit 
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur occaecat cupidatat 
+            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section style="background-image: url('/default/images/3.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;" 
+  class="min-h-screen py-40 flex items-center">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        
+        <div class="text-left">
+          <p class="text-lg text-white mb-10">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>  
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua<br>  
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris<br>  
+            nisi ut aliquip ea commodo consequat.<br> 
+            Duis aut dolor in reprehenderit<br>  
+            in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>  
+            Excepteur occaecat cupidatat non proident, sunt in culpa<br>  
+            qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div class="text-right flex flex-col items-end">
+          <h2 class="font-playfair text-8xl italic mb-8">Cold Coffees</h2>
+          <a href="/shop" class="inline-block bg-primary text-white px-10 py-4 rounded-lg hover:bg-primary/90 transition-colors text-lg">
+            Order Now
+          </a>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  
+
+
+<section class="bg-gray-50 py-20">
+    <div class="container mx-auto px-6">
+        <h2 class="font-playfair text-4xl text-center mb-12">Đặc Sản Của Chúng Tôi</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="https://public.readdy.ai/ai/img_res/b8463984e2ad9e0e50c3e3b12db34506.jpg" 
+                     alt="Traditional Coffee" 
+                     class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="font-playfair text-xl mb-2">Cà Phê Phin Truyền Thống</h3>
+                    <p class="text-gray-600 mb-4">Phương pháp pha chế truyền thống tạo nên hương vị đậm đà đặc trưng</p>
+                    <p class="text-primary font-bold">45.000 đ</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="https://public.readdy.ai/ai/img_res/885e09a79e1eaf16ee482f543e02400d.jpg" 
+                     alt="Latte Art" 
+                     class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="font-playfair text-xl mb-2">Cà Phê Latte</h3>
+                    <p class="text-gray-600 mb-4">Sự kết hợp hoàn hảo giữa espresso và sữa tươi đánh bông</p>
+                    <p class="text-primary font-bold">55.000 đ</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="https://public.readdy.ai/ai/img_res/8ae9ceae81160c7f836cc1949d71fa0c.jpg" 
+                     alt="Coconut Coffee" 
+                     class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="font-playfair text-xl mb-2">Cà Phê Dừa</h3>
+                    <p class="text-gray-600 mb-4">Hương vị độc đáo của cà phê kết hợp với kem dừa béo ngậy</p>
+                    <p class="text-primary font-bold">65.000 đ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- Replace inline footer with Thymeleaf include -->
+<div th:replace="~{default/footer :: body}"></div>
+
+</body>
+</html>
+

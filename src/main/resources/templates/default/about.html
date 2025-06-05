@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChaChaCoffee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FF6B35",
+              secondary: "#1B365D",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      .font-playfair { font-family: 'Playfair Display', serif; }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Include the header -->
+    <div th:replace="~{default/header :: body}"></div>
+
+    <section layout:fragment="main-content" class="pt-20">
+        <!-- Hero Section -->
+        <div class="bg-coffee-pattern py-16">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h1 class="font-playfair text-5xl mb-6">Our Story</h1>
+                    <p class="text-gray-600 mb-8">
+                        Discover the passion and dedication behind ChaCha Coffee
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rest of the content remains unchanged -->
+        <!-- Our Mission -->
+        <div class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="font-playfair text-4xl mb-6">Our Mission</h2>
+                        <p class="text-gray-600 mb-4">
+                            At ChaCha Coffee, we believe that great coffee is more than just a beverage—it's an experience. Our mission is to provide our customers with the highest quality coffee, sourced ethically from around the world, and served in a warm, welcoming environment.
+                        </p>
+                        <p class="text-gray-600">
+                            We are committed to sustainability, fair trade practices, and supporting the communities where our coffee is grown. Every cup of coffee we serve is a testament to our dedication to quality and our respect for the craft of coffee-making.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="https://public.readdy.ai/ai/img_res/551c522a0fa1036c65fb93783892d8e3.jpg" 
+                             alt="Coffee beans" 
+                             class="rounded-lg shadow-xl w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Team -->
+        <div class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="font-playfair text-4xl text-center mb-12">Meet Our Team</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://public.readdy.ai/ai/img_res/b8463984e2ad9e0e50c3e3b12db34506.jpg" 
+                             alt="Team Member" 
+                             class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-playfair text-xl mb-2">Nguyễn Văn A</h3>
+                            <p class="text-primary font-medium mb-2">Master Barista</p>
+                            <p class="text-gray-600">With over 10 years of experience, Nguyễn brings artistry and precision to every cup.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://public.readdy.ai/ai/img_res/885e09a79e1eaf16ee482f543e02400d.jpg" 
+                             alt="Team Member" 
+                             class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-playfair text-xl mb-2">Trần Thị B</h3>
+                            <p class="text-primary font-medium mb-2">Coffee Sourcer</p>
+                            <p class="text-gray-600">Trần travels the world to find the best coffee beans for our customers.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://public.readdy.ai/ai/img_res/8ae9ceae81160c7f836cc1949d71fa0c.jpg" 
+                             alt="Team Member" 
+                             class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-playfair text-xl mb-2">Lê Văn C</h3>
+                            <p class="text-primary font-medium mb-2">Head Chef</p>
+                            <p class="text-gray-600">Lê creates delicious pastries and snacks that perfectly complement our coffee.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Values -->
+        <div class="py-16 bg-secondary text-white">
+            <div class="container mx-auto px-6">
+                <h2 class="font-playfair text-4xl text-center mb-12">Our Values</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="bg-white/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                            <i class="ri-leaf-line text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Sustainability</h3>
+                        <p class="text-gray-300">We are committed to environmentally friendly practices in every aspect of our business.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                            <i class="ri-heart-line text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Community</h3>
+                        <p class="text-gray-300">We believe in building strong relationships with our customers and coffee growers.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                            <i class="ri-award-line text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Quality</h3>
+                        <p class="text-gray-300">We never compromise on the quality of our coffee or the service we provide.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visit Us -->
+        <div class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="font-playfair text-4xl mb-6">Visit Us Today</h2>
+                    <p class="text-gray-600 mb-8">
+                        We'd love to welcome you to our coffee shop. Come experience the ChaCha difference for yourself!
+                    </p>
+                    <button class="bg-primary text-white px-8 py-3 rounded-button hover:bg-primary/90 transition-colors">
+                        Find Our Location
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Replace inline footer with Thymeleaf include -->
+<div th:replace="~{default/footer :: body}"></div>
+
+</body>
+</html>
+
+
+

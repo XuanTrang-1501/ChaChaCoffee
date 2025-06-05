@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChaChaCoffee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FF6B35",
+              secondary: "#1B365D",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      .font-playfair { font-family: 'Playfair Display', serif; }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Include the header -->
+    <div th:replace="~{default/header :: body}"></div>
+
+    <section class="pt-20">
+
+        <!-- Products Section -->
+        <div class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="font-playfair text-4xl text-center mb-12">Coffee Products</h2>
+                
+                <!-- Product Grid -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Product Item (Repeated for each coffee in the database) -->
+                    <div th:each="coffee : ${coffeeList}" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <a th:href="@{/coffee-detail(id=${coffee.id})}">
+                            <img th:src="${coffee.image}" 
+                                 alt="Coffee Product" 
+                                 class="w-full h-96 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-playfair text-xl" th:text="${coffee.name}">Coffee Name</h3>
+                                <span class="text-primary font-bold" th:text="${#numbers.formatDecimal(coffee.price, 0, 'COMMA', 0, 'POINT') + ' đ'}">Price</span>
+                            </div>
+                            <div class="flex gap-4 mt-4">
+                                <a th:href="@{/coffee-detail(id=${coffee.id})}" class="flex-1 bg-secondary text-white py-2 px-4 rounded-button text-center hover:bg-secondary/90 transition-colors">
+                                    View Detail <i class="ri-eye-line"></i>
+                                </a>
+                                <button class="flex-1 bg-primary text-white py-2 px-4 rounded-button hover:bg-primary/90 transition-colors">
+                                    Add to Cart <i class="ri-shopping-cart-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- No Products Message -->
+                <div th:if="${#lists.isEmpty(coffeeList)}" class="text-center py-10">
+                    <p class="text-gray-500 text-xl">No coffee products available at the moment.</p>
+                    <p class="text-gray-500">Please check back later!</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Shopping Benefits -->
+        <div class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="font-playfair text-4xl text-center mb-12">Why Shop With Us</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                            <i class="ri-truck-line text-primary text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Free Shipping</h3>
+                        <p class="text-gray-600">Free shipping on all orders over 500.000 đ</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                            <i class="ri-refresh-line text-primary text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Easy Returns</h3>
+                        <p class="text-gray-600">30-day return policy for all products</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                            <i class="ri-shield-check-line text-primary text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Quality Guarantee</h3>
+                        <p class="text-gray-600">All our products are sourced from premium suppliers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Replace inline footer with Thymeleaf include -->
+<div th:replace="~{default/footer :: body}"></div>
+
+</body>
+</html>
+

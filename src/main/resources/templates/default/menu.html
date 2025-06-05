@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChaChaCoffee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FF6B35",
+              secondary: "#1B365D",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      .font-playfair { font-family: 'Playfair Display', serif; }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Include the header -->
+    <div th:replace="~{default/header :: body}"></div>
+
+<section layout:fragment="main-content" class="pt-20">
+        <!-- Menu Hero Section -->
+        <div class="bg-coffee-pattern py-16">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h1 class="font-playfair text-5xl mb-6">Our Menu</h1>
+                    <p class="text-gray-600 mb-8">
+                        Discover our selection of premium coffees and delicious treats
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coffee Menu Section -->
+        <div class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="font-playfair text-4xl text-center mb-12">Coffee Selection</h2>
+                
+                <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
+                    <!-- Coffee Item 1 -->
+                    <div class="flex items-start">
+                        <img src="https://public.readdy.ai/ai/img_res/b8463984e2ad9e0e50c3e3b12db34506.jpg" 
+                             alt="Traditional Coffee" 
+                             class="w-24 h-24 rounded-lg object-cover mr-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-playfair text-xl">Cà Phê Phin Truyền Thống</h3>
+                                <span class="text-primary font-bold">45.000 đ</span>
+                            </div>
+                            <p class="text-gray-600">Phương pháp pha chế truyền thống tạo nên hương vị đậm đà đặc trưng của cà phê Việt Nam</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Coffee Item 2 -->
+                    <div class="flex items-start">
+                        <img src="https://public.readdy.ai/ai/img_res/885e09a79e1eaf16ee482f543e02400d.jpg" 
+                             alt="Latte Art" 
+                             class="w-24 h-24 rounded-lg object-cover mr-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-playfair text-xl">Cà Phê Latte</h3>
+                                <span class="text-primary font-bold">55.000 đ</span>
+                            </div>
+                            <p class="text-gray-600">Sự kết hợp hoàn hảo giữa espresso đậm đà và sữa tươi đánh bông mịn màng</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Coffee Item 3 -->
+                    <div class="flex items-start">
+                        <img src="https://public.readdy.ai/ai/img_res/8ae9ceae81160c7f836cc1949d71fa0c.jpg" 
+                             alt="Coconut Coffee" 
+                             class="w-24 h-24 rounded-lg object-cover mr-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-playfair text-xl">Cà Phê Dừa</h3>
+                                <span class="text-primary font-bold">65.000 đ</span>
+                            </div>
+                            <p class="text-gray-600">Hương vị độc đáo của cà phê kết hợp với kem dừa béo ngậy, thơm lừng</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Coffee Item 4 -->
+                    <div class="flex items-start">
+                        <img src="https://public.readdy.ai/ai/img_res/e1ca4375f8421f5ac8c141b26585d925.jpg" 
+                             alt="Cold Brew" 
+                             class="w-24 h-24 rounded-lg object-cover mr-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-playfair text-xl">Cold Brew</h3>
+                                <span class="text-primary font-bold">60.000 đ</span>
+                            </div>
+                            <p class="text-gray-600">Cà phê ủ lạnh 24 giờ, tạo nên hương vị mượt mà, ít đắng, hương thơm tinh tế</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Coffee Item 5 -->
+                    <div class="flex items-start">
+                        <img src="https://public.readdy.ai/ai/img_res/551c522a0fa1036c65fb93783892d8e3.jpg" 
+                             alt="Espresso" 
+                             class="w-24 h-24 rounded-lg object-cover mr-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-playfair text-xl">Espresso</h3>
+                                <span class="text-primary font-bold">40.000 đ</span>
+                            </div>
+                            <p class="text-gray-600">Tinh túy của cà phê, đậm đặc và thơm nồng, là nền tảng cho nhiều loại cà phê khác</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Coffee Item 6 -->
+                    <div class="flex items-start">
+                        <img src="https://public.readdy.ai/ai/img_res/8a638e5c8bf107bfdaaab9bf3f8a1d18.jpg" 
+                             alt="Cappuccino" 
+                             class="w-24 h-24 rounded-lg object-cover mr-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-playfair text-xl">Cappuccino</h3>
+                                <span class="text-primary font-bold">55.000 đ</span>
+                            </div>
+                            <p class="text-gray-600">Sự cân bằng hoàn hảo giữa espresso, sữa nóng và bọt sữa mịn màng</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tea & Other Drinks Section -->
+        <div class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="font-playfair text-4xl text-center mb-12">Tea & Other Drinks</h2>
+                
+                <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
+                    <!-- Tea Item 1 -->
+                    <div class="flex items-start">
+                        <img src="https://public.readdy.ai/ai/img_res/b8463984e2ad9e0e50c3e3b12db34506.jpg" 
+                             alt="Green Tea" 
+                             class="w-24 h-24 rounded-lg object-cover mr-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-playfair text-xl">Trà Xanh</h3>
+                                <span class="text-primary font-bold">35.000 đ</span>
+                            </div>
+                            <p class="text-gray-600">Trà xanh tươi mát với hương thơm tinh tế, giúp thư giãn và tỉnh táo</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Tea Item 2 -->
+                    <div class="flex items-start">
+                        <img src="https://public.readdy.ai/ai/img_res/885e09a79e1eaf16ee482f543e02400d.jpg" 
+                             alt="Lemon Tea" 
+                             class="w-24 h-24 rounded-lg object-cover mr-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-playfair text-xl">Trà Chanh</h3>
+                                <span class="text-primary font-bold">40.000 đ</span>
+                            </div>
+                            <p class="text-gray-600">Trà đen kết hợp với chanh tươi và đường, tạo nên vị chua ngọt sảng khoái</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Other Drink Item 1 -->
+                    <div class="flex items-start">
+                        <img src="https://public.readdy.ai/ai/img_res/8ae9ceae81160c7f836cc1949d71fa0c.jpg" 
+                             alt="Chocolate" 
+                             class="w-24 h-24 rounded-lg object-cover mr-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-playfair text-xl">Chocolate Nóng</h3>
+                                <span class="text-primary font-bold">50.000 đ</span>
+                            </div>
+                            <p class="text-gray-600">Chocolate đậm đà với lớp kem tươi mịn màng, hoàn hảo cho những ngày se lạnh</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Other Drink Item 2 -->
+                    <div class="flex items-start">
+                        <img src="https://public.readdy.ai/ai/img_res/e1ca4375f8421f5ac8c141b26585d925.jpg" 
+                             alt="Fruit Smoothie" 
+                             class="w-24 h-24 rounded-lg object-cover mr-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-playfair text-xl">Sinh Tố Trái Cây</h3>
+                                <span class="text-primary font-bold">55.000 đ</span>
+                            </div>
+                            <p class="text-gray-600">Hỗn hợp trái cây tươi xay nhuyễn với sữa chua, tươi mát và bổ dưỡng</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pastries & Snacks Section -->
+        <div class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="font-playfair text-4xl text-center mb-12">Pastries & Snacks</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Pastry Item 1 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://public.readdy.ai/ai/img_res/b8463984e2ad9e0e50c3e3b12db34506.jpg" 
+                             alt="Croissant" 
+                             class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-playfair text-xl">Croissant</h3>
+                                <span class="text-primary font-bold">35.000 đ</span>
+                            </div>
+                            <p class="text-gray-600">Bánh sừng bò giòn xốp với lớp vỏ vàng ươm, thơm mùi bơ</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Pastry Item 2 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://public.readdy.ai/ai/img_res/885e09a79e1eaf16ee482f543e02400d.jpg" 
+                             alt="Tiramisu" 
+                             class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-playfair text-xl">Tiramisu</h3>
+                                <span class="text-primary font-bold">45.000 đ</span>
+                            </div>
+                            <p class="text-gray-600">Bánh tiramisu thơm ngon với lớp kem phô mai mềm mịn và hương vị cà phê đặc trưng</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Pastry Item 3 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://public.readdy.ai/ai/img_res/8ae9ceae81160c7f836cc1949d71fa0c.jpg" 
+                             alt="Cheesecake" 
+                             class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-playfair text-xl">Cheesecake</h3>
+                                <span class="text-primary font-bold">50.000 đ</span>
+                            </div>
+                            <p class="text-gray-600">Bánh phô mai mềm mịn với đế bánh giòn tan, phủ lớp mứt trái cây tươi ngon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div th:replace="~{default/footer :: body}"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
